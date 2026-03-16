@@ -757,37 +757,57 @@ em { font-style: italic; }
 .anatomy-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin: 2.5rem 0 3rem;
 }
 
 .anat-img-card {
   border-radius: var(--radius);
   overflow: hidden;
-  background: rgba(255,255,255,0.6);
+  background: white;
   border: 1px solid var(--border-dark);
   box-shadow: var(--shadow-card);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
-.anat-img-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.anat-img-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(168,71,122,0.22);
+  border-color: var(--accent);
+}
+
+.anat-img-card .img-wrapper {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdf6fb;
+  padding: 1rem;
+  overflow: hidden;
+}
 
 .anat-img-card img {
-  width: 100%;
-  display: block;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  background: white;
+  display: block;
+  transition: transform 0.35s ease;
 }
+.anat-img-card:hover img { transform: scale(1.04); }
 
 .anat-img-caption {
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1rem;
   font-size: 0.78rem;
   font-family: var(--font-mono);
-  color: var(--text-muted-dark);
+  color: var(--accent);
   text-align: center;
-  background: rgba(255,255,255,0.7);
+  background: white;
   border-top: 1px solid var(--border-dark);
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 768px) { .anatomy-images { grid-template-columns: 1fr; } }
