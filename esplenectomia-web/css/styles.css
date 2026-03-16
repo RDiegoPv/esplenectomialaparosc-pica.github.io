@@ -413,15 +413,129 @@ em { font-style: italic; }
 
 /* Vascular */
 .vascular-section { margin-bottom: 3rem; }
-.vascular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.vascular-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
 
 .vascular-card {
-  background: rgba(255,255,255,0.55);
-  border: 1px solid var(--border-dark);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--border-dark);
+  transition: var(--transition);
+  box-shadow: var(--shadow-card);
 }
-.vascular-card h4 { font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-dark); }
+.vascular-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+/* Color por tipo */
+.vc-arterial  { background: linear-gradient(160deg, #fff0f5, #fde8ef); border-top: 3px solid #e07090; }
+.vc-venoso    { background: linear-gradient(160deg, #eef2ff, #e4eafd); border-top: 3px solid #7b9de8; }
+.vc-linfatico { background: linear-gradient(160deg, #edfaf3, #ddf5e9); border-top: 3px solid #5dba84; }
+.vc-inervacion{ background: linear-gradient(160deg, #fdf5e0, #faefd0); border-top: 3px solid #e0a830; }
+
+.vc-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.vc-icon { font-size: 1.3rem; }
+.vc-header h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.vc-subtitle {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted-dark);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Cadena vertical */
+.vc-chain-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.vc-node {
+  width: 100%;
+  text-align: center;
+  padding: 0.4rem 0.5rem;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(168,71,122,0.15);
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.vc-node.start {
+  background: rgba(168,71,122,0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+.vc-node.end {
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border: none;
+  color: white;
+  font-weight: 700;
+}
+
+.vc-arrow-down {
+  font-size: 0.8rem;
+  color: var(--text-muted-dark);
+  line-height: 1;
+  padding: 0.1rem 0;
+  opacity: 0.6;
+}
+
+/* Inervación especial */
+.vc-inervacion-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.vc-plexo-badge {
+  padding: 0.6rem 1.25rem;
+  background: linear-gradient(135deg, #e0a830, #c98a10);
+  color: white;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(224,168,48,0.35);
+}
+
+.vc-inervacion-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted-dark);
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .vascular-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .vascular-grid { grid-template-columns: 1fr; }
+}
 
 .chain {
   display: flex;
