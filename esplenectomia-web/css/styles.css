@@ -335,7 +335,7 @@ em { font-style: italic; }
   box-shadow: var(--shadow-card);
 }
 .benefit-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
-.benefit-icon { font-size: 1.6rem; display: block; margin-bottom: 0.5rem; }
+.benefit-icon { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
 .benefit-card h4 { font-size: 0.9rem; margin-bottom: 0.4rem; }
 .benefit-card p { font-size: 0.8rem; color: var(--text-muted-light); margin: 0; }
 
@@ -567,22 +567,95 @@ em { font-style: italic; }
 /* ============================================================
    INDICACIONES
    ============================================================ */
-.indications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
+.indications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
 
 .indication-card {
   background: white;
-  border: 1px solid var(--border-light);
-  border-top: 3px solid var(--accent);
   border-radius: var(--radius);
-  padding: 1.75rem;
+  padding: 1.5rem;
   transition: var(--transition);
   box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  overflow: hidden;
 }
-.indication-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.ind-icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
-.indication-card h3 { font-size: 1rem; margin-bottom: 0.75rem; }
-.indication-card p { font-size: 0.85rem; color: var(--text-muted-light); margin-bottom: 0.5rem; }
-.indication-card ul { font-size: 0.83rem; color: var(--text-muted-light); }
+.indication-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.indication-card:nth-child(1)::before { background: linear-gradient(90deg, #e07090, #c45080); }
+.indication-card:nth-child(2)::before { background: linear-gradient(90deg, #9b7ed4, #7b5cba); }
+.indication-card:nth-child(3)::before { background: linear-gradient(90deg, #5dba84, #3a9e68); }
+.indication-card:nth-child(4)::before { background: linear-gradient(90deg, #e07840, #c85820); }
+
+.indication-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+.ind-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.ind-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.ic-hemato  { background: #fde8ef; }
+.ic-espleno { background: #ede8fa; }
+.ic-tumor   { background: #e8f7ee; }
+.ic-trauma  { background: #fdeee8; }
+
+.ind-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2rem;
+  color: white;
+}
+.indication-card:nth-child(1) .ind-badge { background: #c45080; }
+.indication-card:nth-child(2) .ind-badge { background: #7b5cba; }
+.indication-card:nth-child(3) .ind-badge { background: #3a9e68; }
+.indication-card:nth-child(4) .ind-badge { background: #c85820; }
+
+.indication-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+.indication-card p {
+  font-size: 0.83rem;
+  color: var(--text-muted-light);
+  margin: 0;
+  line-height: 1.6;
+}
+.indication-card ul {
+  font-size: 0.82rem;
+  color: var(--text-muted-light);
+  margin: 0;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.indication-card li { margin: 0; }
 
 /* ============================================================
    ALISTAMIENTO — Tabs
