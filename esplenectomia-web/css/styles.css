@@ -250,17 +250,17 @@ em { font-style: italic; }
 .spleen-graphic {
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 4/3;
   background: rgba(255,255,255,0.5);
-  border: 1px solid rgba(196,112,154,0.2);
+  border: 1px solid rgba(168,71,122,0.2);
   position: relative;
-  box-shadow: 0 12px 40px rgba(196,112,154,0.2);
+  box-shadow: 0 12px 40px rgba(168,71,122,0.2);
 }
 
 .spleen-graphic img {
-  width: 100%; height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
   display: block;
+  object-fit: contain;
 }
 
 .placeholder-img {
@@ -774,8 +774,8 @@ em { font-style: italic; }
 .anat-img-card img {
   width: 100%;
   display: block;
-  object-fit: cover;
-  aspect-ratio: 4/3;
+  object-fit: contain;
+  background: white;
 }
 
 .anat-img-caption {
