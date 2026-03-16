@@ -660,6 +660,35 @@ em { font-style: italic; }
 /* Organización mesas */
 .org-mesas { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-dark); }
 
+.org-mesas-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+  background: white;
+  transition: var(--transition);
+}
+.org-mesas-img:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+.org-mesas-img .img-wrapper {
+  width: 100%;
+  background: #f9f4fc;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-mesas-img img {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: calc(var(--radius) - 2px);
+}
+
 .equipo-qx { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
 .rol-card {
   display: flex;
